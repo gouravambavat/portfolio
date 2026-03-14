@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gourav Ambawat — Pharmacist & Healthcare Professional</title>
+
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --deep-green: #1A3A2A;
+    --mid-green: #2D5A3D;
+    --light-green: #4A8C62;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --white: #FDFAF5;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --border: rgba(26,58,42,0.15);
+  }
+
+  :root {
+    --font-apple: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    --font-apple-display: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-apple);
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: rgba(245,240,232,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-apple-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--deep-green); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--deep-green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5rem 5rem;
+    position: relative;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 0; bottom: 0;
+    width: 120px;
+    background: var(--deep-green);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: var(--font-apple-display);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-name em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-title {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    max-width: 380px;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--deep-green);
+    padding: 0.85rem 2rem;
+    border: none;
+    font-family: var(--font-apple);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-family: var(--font-apple);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 4rem 5rem 6rem;
+    position: relative;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(26,58,42,0.08);
+  }
+
+  .hero-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-green);
+    margin-bottom: 1rem;
+  }
+
+  .hero-card-stat {
+    font-family: var(--font-apple-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--deep-green);
+    line-height: 1;
+  }
+
+  .hero-card-sub {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    margin-top: 0.5rem;
+  }
+
+  .hero-card-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1.5rem 0;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .pill {
+    background: rgba(26,58,42,0.07);
+    color: var(--deep-green);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  .pill.gold { background: rgba(201,168,76,0.15); color: #8A6A1A; }
+
+  .deco-line {
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 100px; height: 100px;
+    border: 2px solid var(--gold);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 7rem 4rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light-green);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--light-green);
+  }
+
+  .section-heading {
+    font-family: var(--font-apple-display);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 900;
+    color: var(--deep-green);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .fact-box {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .fact-box:hover {
+    border-color: var(--light-green);
+    transform: translateY(-3px);
+  }
+
+  .fact-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fact-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    margin-bottom: 0.3rem;
+  }
+
+  .fact-value {
+    font-family: var(--font-apple-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--deep-green);
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience {
+    background: var(--cream);
+  }
+
+  .exp-timeline {
+    position: relative;
+    margin-top: 4rem;
+  }
+
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 180px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 176px;
+    top: 12px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.3);
+  }
+
+  .exp-period {
+    text-align: right;
+    padding-top: 0.1rem;
+  }
+
+  .exp-period-main {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--deep-green);
+  }
+
+  .exp-period-sub {
+    font-size: 0.72rem;
+    color: var(--text-mid);
+    margin-top: 0.2rem;
+  }
+
+  .exp-content {
+    padding-left: 2rem;
+  }
+
+  .exp-role {
+    font-family: var(--font-apple-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 0.3rem;
+  }
+
+  .exp-org {
+    font-size: 0.85rem;
+    color: var(--light-green);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .exp-duties {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-duties li {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .exp-duties li::before {
+    content: '—';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  /* ── SKILLS ── */
+  #skills {
+    background: var(--deep-green);
+    color: var(--white);
+  }
+
+  #skills .section-heading { color: var(--white); }
+  #skills .section-label { color: var(--gold); }
+  #skills .section-label::before { background: var(--gold); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .skill-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+  }
+
+  .skill-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .skill-card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-card-title {
+    font-family: var(--font-apple-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-card-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  #education {
+    background: var(--white);
+  }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+  }
+
+  .edu-card {
+    border-left: 3px solid var(--gold);
+    padding-left: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .edu-year {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .edu-degree {
+    font-family: var(--font-apple-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-inst {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+  }
+
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+  }
+
+  .cert-badge {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .cert-text {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--deep-green);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: 'CONTACT';
+    position: absolute;
+    font-family: var(--font-apple-display);
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  #contact .section-heading { color: var(--white); }
+  #contact .section-label { color: var(--gold); }
+  #contact .section-label::before { background: var(--gold); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+  }
+
+  .contact-item-icon {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    padding: 0.85rem 1rem;
+    font-family: var(--font-apple);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .form-submit {
+    background: var(--gold);
+    color: var(--deep-green);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-apple);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0F2418;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+  }
+
+  footer a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  footer a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 7rem 2rem 3rem; }
+    .hero-left::after { display: none; }
+    .hero-right { padding: 3rem 2rem; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .exp-timeline::before { left: 0; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-item::before { left: -4px; }
+    .exp-period { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Gourav Ambawat</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Healthcare Professional</div>
+    <h1 class="hero-name">Gourav<br><em>Ambawat</em></h1>
+    <p class="hero-title">Pharmacist &amp; Patient Care Specialist</p>
+    <p class="hero-desc">Dynamic healthcare professional with clinical pharmacy expertise at MMG Government Hospital, committed to medication safety, patient welfare, and quality improvement.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-outline">View Work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="deco-line"></div>
+      <div class="hero-card">
+        <div class="hero-card-label">Current Role</div>
+        <div class="hero-card-stat">D.Pharm</div>
+        <div class="hero-card-sub">Diploma in Pharmacy · INMANTEC, 2024</div>
+        <div class="hero-card-divider"></div>
+        <div class="hero-card-label">Core Expertise</div>
+        <div class="skill-pills">
+          <span class="pill gold">Medication Dispensing</span>
+          <span class="pill">Patient Care</span>
+          <span class="pill">Drug Information</span>
+          <span class="pill gold">Clinical Pharmacy</span>
+          <span class="pill">Quality Improvement</span>
+          <span class="pill">Formulary Mgmt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-heading">Passionate About<br>Patient Outcomes</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I am a dedicated and detail-oriented pharmacist based in Ghaziabad, India. With hands-on experience at MMG Government Hospital (Ghaziabad), I have developed a strong foundation in clinical pharmacy services, medication safety, and patient-centred care.</p>
+        <p>My professional journey has equipped me with the skills to ensure safe and effective medication use while contributing to quality improvement initiatives. I combine scientific knowledge with empathetic communication to deliver the best possible healthcare outcomes.</p>
+        <p>Currently, I am also sharpening my administrative and interpersonal skills through a receptionist role, broadening my professional versatility in a healthcare environment.</p>
+      </div>
+      <div class="about-facts reveal">
+        <div class="fact-box">
+          <div class="fact-icon">🎓</div>
+          <div class="fact-label">Education</div>
+          <div class="fact-value">D.Pharm, 2024</div>
+        </div>
+        <div class="fact-box">
+          <div class="fact-icon">🏥</div>
+          <div class="fact-label">Hospital Experience</div>
+          <div class="fact-value">MMG Govt. Hospital</div>
+        </div>
+        <div class="fact-box">
+          <div class="fact-icon">📍</div>
+          <div class="fact-label">Location</div>
+          <div class="fact-value">Ghaziabad, India</div>
+        </div>
+        <div class="fact-box">
+          <div class="fact-icon">⭐</div>
+          <div class="fact-label">Status</div>
+          <div class="fact-value">Available to Hire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career Path</div>
+    <h2 class="section-heading">Work Experience</h2>
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-period">
+          <div class="exp-period-main">Dec 2024</div>
+          <div class="exp-period-sub">Present</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Receptionist</div>
+          <div class="exp-org">Healthcare Facility · Ghaziabad</div>
+          <ul class="exp-duties">
+            <li>Greeting and directing visitors with professionalism and warmth</li>
+            <li>Managing communications including calls, emails, and scheduling</li>
+            <li>Administrative and clerical support across departments</li>
+            <li>Maintaining an organised and welcoming reception area</li>
+            <li>Security and access control management</li>
+            <li>Delivering excellent front-line customer service</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-period">
+          <div class="exp-period-main">Aug – Nov</div>
+          <div class="exp-period-sub">2024</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Pharmacist</div>
+          <div class="exp-org">MMG Government Hospital · Ghaziabad</div>
+          <ul class="exp-duties">
+            <li>Accurate medication dispensing and preparation for inpatients and outpatients</li>
+            <li>Delivered clinical pharmacy services with strong patient care focus</li>
+            <li>Contributed to medication safety protocols and quality improvement initiatives</li>
+            <li>Provided drug information and patient education on prescriptions</li>
+            <li>Managed hospital formulary and drug inventory systems</li>
+            <li>Supported administration and pharmacy management operations</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">What I Bring</div>
+    <h2 class="section-heading">Skills &amp; Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💊</div>
+        <div class="skill-card-title">Medication Dispensing</div>
+        <div class="skill-card-desc">Accurate preparation and dispensing of medications following safety protocols and hospital formulary guidelines.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🛡️</div>
+        <div class="skill-card-title">Medication Safety</div>
+        <div class="skill-card-desc">Identifying and preventing medication errors, ensuring patient safety and adherence to quality standards.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🩺</div>
+        <div class="skill-card-title">Patient Care</div>
+        <div class="skill-card-desc">Empathetic patient interaction, counselling on drug usage, and supporting optimal therapeutic outcomes.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🔬</div>
+        <div class="skill-card-title">Clinical Pharmacy</div>
+        <div class="skill-card-desc">Supporting clinical teams with drug information, formulary management, and evidence-based pharmacy practice.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💬</div>
+        <div class="skill-card-title">Communication</div>
+        <div class="skill-card-desc">Clear and effective communication with patients, physicians, and administrative staff in fast-paced settings.</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💻</div>
+        <div class="skill-card-title">Computer &amp; Administration</div>
+        <div class="skill-card-desc">Proficiency in Microsoft Office, word processing, mail management, and healthcare administrative systems.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-heading">Education &amp; Certifications</h2>
+    <div class="edu-grid">
+      <div>
+        <div class="edu-card reveal">
+          <div class="edu-year">2024</div>
+          <div class="edu-degree">Diploma in Pharmacy (D.Pharm)</div>
+          <div class="edu-inst">INMANTEC Institutions · Ghaziabad</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-year">2022</div>
+          <div class="edu-degree">Intermediate (10+2)</div>
+          <div class="edu-inst">Jaypee Vidya Mandir (BSR)</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:1.5rem;">Achievements</div>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-badge">🏅</div>
+            <div class="cert-text">Most Obedient Student Certificate</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">🏆</div>
+            <div class="cert-text">Best Project Making Certificate in Pharmacy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-heading">Get In Touch</h2>
+    <div class="reveal">
+      <p class="contact-intro">I am open to new opportunities in pharmacy, clinical healthcare, and patient services. Feel free to reach out — I'd love to connect!</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <span>+91 72529 58972</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <span>gouravambavat2H@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <span>Ghaziabad, Uttar Pradesh, India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Gourav Ambawat. All rights reserved.</span>
+  <span>Pharmacist · Ghaziabad, India</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+
+
+</script>
+</body>
+</html>
